@@ -23,6 +23,17 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family:Roboto, Arial, Helvetica, sans-serif;
+  
+}
+
+@media (min-width: 800px) {
+  *{
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  :root {
+    margin-block:5%;
+  }
 }
 
 @layer utilities {

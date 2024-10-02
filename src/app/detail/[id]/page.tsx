@@ -19,19 +19,29 @@ export default function BeerDetail() {
   return (
     <div className="p-10 pt-20 pb-40 flex flex-col justify-center items-start w-full gap-8 relative">
       <h2 className="text-3xl font-extrabold">{brewery.name}</h2>
-      <div className="flex flex-col justify-center items-start gap-4">
-        <div className="flex justify-center items-center gap-1">
-          <LocationIcon />
-          <p className="text-sm ">{brewery.address_1}</p>
+      <div className="flex flex-col justify-center w-full  items-center gap-7 self-start">
+        <div className="flex justify-start items-center w-full gap-1 relative bg-blue-500">
+          <LocationIcon
+            style={{
+              left: 0,
+              position: "absolute",
+            }}
+          />
+          <p className="text-sm absolute left-8">{brewery.address_1}</p>
         </div>
-        <div className="flex justify-center items-center gap-1">
-          <PhoneIcon />
-          <p className="text-sm ">{brewery.phone}</p>
+        <div className="flex justify-center items-center w-full gap-1  relative">
+          <PhoneIcon
+            style={{
+              left: 0,
+              position: "absolute",
+            }}
+          />
+          <p className="text-sm left-8 absolute">{brewery.phone}</p>
         </div>
       </div>
       <CarrouselDetail />
       <h3 className="text-2xl font-extrabold">Opiniones</h3>
-      <div className="flex flex-col justify-center items-start gap-5">
+      <div className="flex flex-col justify-center items-start gap-5 w-full">
         {comments.map((person, index) => (
           <CommentItem
             key={index}
@@ -48,13 +58,6 @@ export default function BeerDetail() {
         <Button className="w-full rounded-md bg-[#010316] text-white">
           Opciones de transporte
         </Button>
-      </div>
-
-      <div className="backdrop-blur-sm h-20 fixed bottom-0 left-0 w-screen">
-        {""}
-      </div>
-      <div className="backdrop-blur-sm h-12 fixed top-0 left-0 w-screen">
-        {""}
       </div>
     </div>
   );

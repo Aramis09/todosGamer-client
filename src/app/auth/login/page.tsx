@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useLoginQuery } from "@/services/hooks/user";
 import { useAuthContext } from "@/context/contextAuth/contextAuth";
 import { useRouter } from "next/navigation";
+import Loader from "@/components/ui/loader";
 
 export default function Login() {
   const toast = useToast();
@@ -14,7 +15,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [photoUferFound, setPhotoUferFound] = useState<string>();
 
-  const { mutateAsync: makeLoginMutation } = useLoginQuery();
+  const { mutateAsync: makeLoginMutation, isPending } = useLoginQuery();
 
   const handleSubmit = async (evt: React.FormEvent) => {
     evt.preventDefault();
@@ -45,6 +46,8 @@ export default function Login() {
       router.push("/");
     }
   };
+
+  if (isPending) return <Loader />;
 
   return (
     <div className="px-5 flex flex-col gap-5 justify-center items-center w-full min-h-screen pb-52">
@@ -97,7 +100,7 @@ const ShowImage = ({ showByURL }: { showByURL?: string }) => {
           alt="user"
           width={40}
           height={40}
-          className="rounded-full"
+          className="w-[168px]  h-[168px] object-cover rounded-full"
         />
       )}
     </div>

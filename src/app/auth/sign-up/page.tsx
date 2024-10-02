@@ -8,6 +8,7 @@ import {
   useUploadPhoto,
 } from "@/services/hooks/user";
 import { useRouter } from "next/navigation";
+import Loader from "@/components/ui/loader";
 
 export default function SignUp() {
   const toast = useToast();
@@ -20,11 +21,13 @@ export default function SignUp() {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
 
-  const { mutateAsync: createUserMutation } = usePostProfessional({
+  const { mutateAsync: createUserMutation, isPending } = usePostProfessional({
     router,
   });
-  const { mutateAsync: checkEmailUsedMutation } = useCheckEmailUsed();
-  const { mutateAsync: uploadPhotoMutation } = useUploadPhoto();
+  const { mutateAsync: checkEmailUsedMutation, isPending: isPending2 } =
+    useCheckEmailUsed();
+  const { mutateAsync: uploadPhotoMutation, isPending: isPending3 } =
+    useUploadPhoto();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,8 +93,9 @@ export default function SignUp() {
       );
   };
 
+  if (isPending || isPending2 || isPending3) return <Loader />;
   return (
-    <div className="px-5 flex flex-col gap-5 justify-center items-center w-full min-h-screen pb-52">
+    <div className="px-5 flex flex-col gap-5 justify-center items-center w-full min-h-screen pb-52 mt-20">
       <ImageUpload setImageUploadedFile={setProfilePhoto} />
       <form onSubmit={handleSubmit} className="w-full">
         {/* Añadir un formulario */}

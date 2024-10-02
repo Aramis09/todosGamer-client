@@ -3,6 +3,7 @@ import "./globals.css";
 import Tabs from "@/components/layout/tabs";
 import Header from "@/components/layout/header";
 import { Providers } from "./providers";
+import { BlurFooterAndHeader } from "@/components/ui/blurFooter&Header";
 
 export default function RootLayout({
   children,
@@ -16,6 +17,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Tabs />
+          <BlurFooterAndHeader />
         </Providers>
       </body>
     </html>

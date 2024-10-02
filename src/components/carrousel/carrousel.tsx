@@ -23,7 +23,7 @@ export default function Carrousel({ items }: Props) {
   });
 
   return (
-    <div ref={ref} className="keen-slider">
+    <div ref={ref} className="keen-slider max-w-[900px] ">
       {items.map((item, index) => (
         <CarrouselCard item={item} key={index} />
       ))}
@@ -32,7 +32,7 @@ export default function Carrousel({ items }: Props) {
 }
 
 const CarrouselCard = ({ item }: { item: Brewery }) => (
-  <div className="keen-slider__slide bg-[#13132D] h-48 p-5 flex flex-col gap-2 rounded-xl">
+  <div className="keen-slider__slide bg-[#13132D]  h-auto md:h-48 p-5 flex flex-col gap-2 rounded-xl max-w-72">
     <h5 className="font-extrabold text-xl">
       {add3dotsFormatter(item.name, 20)}
     </h5>

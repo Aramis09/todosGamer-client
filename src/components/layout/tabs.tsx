@@ -12,7 +12,7 @@ export default function TabsLayout() {
   return (
     <Tabs
       // variant="isLazy"
-      className="w-full fixed bottom-5 "
+      className="w-full fixed bottom-5 z-50"
       variant="unstyled"
     >
       <TabList className="w-full justify-between">
