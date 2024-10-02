@@ -12,11 +12,10 @@ import LogoutIcon from "../../public/icons/header/logout.svg";
 
 import DeleteIcon from "../../public/icons/header/delete.svg";
 import { useAuthContext } from "@/context/contextAuth/contextAuth";
-import { forwardRef } from "react";
 import { userService } from "@/services/api";
 import { ModalReusable } from "./reusableModel";
 
-const ProfileMenu = forwardRef((props, ref) => {
+const ProfileMenu = () => {
   const { isLogged, disconnectUser, getToken } = useAuthContext();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -31,13 +30,7 @@ const ProfileMenu = forwardRef((props, ref) => {
 
   return (
     <Menu>
-      <MenuButton
-        as={"button"}
-        aria-label="Options"
-        // icon={<ProfileIcon />}
-        // variant="outline"
-        // ref={ref} // Asegúrate de pasar la referencia aquí
-      >
+      <MenuButton as={"button"} aria-label="Options">
         <ProfileIcon />
       </MenuButton>
       {!isLogged ? (
@@ -98,7 +91,7 @@ const ProfileMenu = forwardRef((props, ref) => {
       />
     </Menu>
   );
-});
+};
 
 ProfileMenu.displayName = "ProfileMenu"; // Agrega displayName para facilitar la depuración
 

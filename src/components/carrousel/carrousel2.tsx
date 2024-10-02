@@ -13,8 +13,11 @@ export default function CarrouselDetail() {
   });
   return (
     <div ref={ref} className="keen-slider w-full">
-      {imagesDetail.map((url) => (
-        <div className="keen-slider__slide max-h-48 w-40 overflow-hidden rounded-2xl object-contain">
+      {imagesDetail.map((url, index) => (
+        <div
+          key={index}
+          className="keen-slider__slide max-h-48 w-40 overflow-hidden rounded-2xl object-contain"
+        >
           <Image src={url} alt="business" />
         </div>
       ))}

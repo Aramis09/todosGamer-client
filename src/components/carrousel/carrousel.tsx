@@ -7,6 +7,7 @@ import { image } from "@/utils/consts";
 import { Image, Link } from "@chakra-ui/react";
 import LocationIcon from "../../public/icons/carrousel/location.svg";
 import PhoneIcon from "../../public/icons/carrousel/phone.svg";
+import { add3dotsFormatter } from "@/utils/functions";
 
 interface Props {
   items: ResGetAllBreweries;
@@ -32,7 +33,9 @@ export default function Carrousel({ items }: Props) {
 
 const CarrouselCard = ({ item }: { item: Brewery }) => (
   <div className="keen-slider__slide bg-[#13132D] h-48 p-5 flex flex-col gap-2 rounded-xl">
-    <h5 className="font-extrabold text-xl">{item.name}</h5>
+    <h5 className="font-extrabold text-xl">
+      {add3dotsFormatter(item.name, 20)}
+    </h5>
     <div className="flex justify-start items-center w-full gap-2">
       <Image src={image} alt="sitio" className="w-16 h-16 rounded-full" />
       <div className="flex flex-col justify-center items-start">
