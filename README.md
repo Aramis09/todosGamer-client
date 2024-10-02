@@ -1,3 +1,6 @@
+### Video explicativo mostrando el proyecto:
+https://www.youtube.com/watch?v=08_FGmHdYDE
+
 1. **Run the following command to install all dependencies:**
    ```bash
    npm install
