@@ -29,6 +29,7 @@ To run the project on your mobile device, you will need the **Port Forwarding** 
    ![Public Port](https://github.com/user-attachments/assets/adb63f21-ef90-43db-bd38-a04c34511ba7)
 
 3. This setup will allow you to quickly deploy the client and the API.
+To ensure foward the two port (client and api | 3000 and 3001)
 
 ### 🌐 Update Credentials in `.env` for Mobile Access:
 To ensure proper functionality, update the following two credentials in the `.env` file:
